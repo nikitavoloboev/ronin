@@ -6,7 +6,9 @@
   "scripts": {
     "dev": "vinxi dev",
     "build": "vinxi build",
-    "start": "vinxi start"
+    "start": "vinxi start",
+    "s": "bun --watch scripts/run.ts",
+    "sr": "bun --watch scripts/p-run.ts"
   },
   "dependencies": {
     "@tanstack/react-query": "^5.62.7",
