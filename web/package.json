@@ -25,7 +25,7 @@
     "ronin": "^5.0.1"
   },
   "devDependencies": {
-    "@ronin/ronin-test": "^0.0.0-3467551341879",
+    "@ronin-types/ronin-test": "^0.0.0-3468653742781",
     "@types/node": "^22.10.2",
     "@types/react": "^19.0.1",
     "@types/react-dom": "^19.0.2",
