@@ -13,3 +13,16 @@ export const $simpleGetOfRoninData = createServerFn({
     throw new Error("Failed to get data")
   }
 })
+
+export const $simpleServerFn = createServerFn({
+  method: "GET",
+}).handler(() => {
+  //          ^? This will show a type error
+  const invalidArr = new Array<number>() as Array<number> & {
+    foo: string
+  }
+
+  return {
+    posts: invalidArr,
+  }
+})
