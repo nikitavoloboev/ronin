@@ -14,6 +14,8 @@ export const $simpleGetOfRoninData = createServerFn({
   }
 })
 
+// TODO: type errors should be solved by fixing createServerFn
+// https://github.com/TanStack/router/issues/3019
 export const $simpleServerFn = createServerFn({
   method: "GET",
 }).handler(() => {
