@@ -21,7 +21,7 @@
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "redaxios": "^0.5.1",
-    "ronin": "^5.3.13",
+    "ronin": "^5.3.14",
     "tailwind-merge": "^2.6.0",
     "vinxi": "0.5.1"
   },
