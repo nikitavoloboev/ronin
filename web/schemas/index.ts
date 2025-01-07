@@ -1,5 +1,4 @@
-import type { Model } from "@ronin/compiler"
-import { link, model, string } from "@ronin/schema"
+import { link, model, string } from "ronin/schema"
 
 const User = model({
   slug: "user",
@@ -7,7 +6,7 @@ const User = model({
     name: string(),
     email: string({ unique: true }),
   },
-}) as unknown as Model
+})
 
 const Post = model({
   slug: "post",
@@ -16,4 +15,4 @@ const Post = model({
     content: string(),
     createdBy: link(User),
   },
-}) as unknown as Model
+})
