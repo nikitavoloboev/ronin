@@ -1,30 +1,37 @@
 import { createServerFn } from "@tanstack/start"
-import { get } from "ronin"
+import * as models from "../../schema/index"
+import ronin from "ronin"
 
-export const $simpleGetOfRoninData = createServerFn({
-  method: "GET",
-}).handler(async () => {
-  try {
-    const posts = await get.posts()
-    return {
-      posts,
+const { create, get } = ronin({ models })
+
+export const $tryRonin = createServerFn({
+  method: "POST",
+})
+  .validator((data: {}) => {
+    return data
+  })
+  .handler(async () => {
+    try {
+      const user = await get.users()
+      console.log({ user })
+    } catch (error) {
+      throw new Error("Failed")
     }
-  } catch (error) {
-    throw new Error("Failed to get data")
-  }
-})
+  })
 
-// TODO: type errors should be solved by fixing createServerFn
-// https://github.com/TanStack/router/issues/3019
-export const $simpleServerFn = createServerFn({
-  method: "GET",
-}).handler(() => {
-  //          ^? This will show a type error
-  const invalidArr = new Array<number>() as Array<number> & {
-    foo: string
-  }
-
-  return {
-    posts: invalidArr,
-  }
+export const $createUser = createServerFn({
+  method: "POST",
 })
+  .validator((data: { name: string }) => {
+    return data
+  })
+  .handler(async () => {
+    try {
+      const user = await create.user.with({
+        name: "nikita",
+      })
+      console.log({ user })
+    } catch (error) {
+      throw new Error("Failed")
+    }
+  })

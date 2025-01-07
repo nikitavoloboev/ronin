@@ -1,6 +1,6 @@
 import { link, model, string } from "ronin/schema"
 
-export const User = model({
+export const UserModel = model({
   slug: "user",
   fields: {
     name: string(),
@@ -8,11 +8,13 @@ export const User = model({
   },
 })
 
-export const Post = model({
+export const PostModel = model({
   slug: "post",
   fields: {
     title: string(),
     content: string(),
-    createdBy: link(User),
+    createdBy: link({
+      target: "user",
+    }),
   },
 })
