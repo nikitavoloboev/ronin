@@ -11,6 +11,7 @@
     "sr": "bun --watch scripts/p-run.ts"
   },
   "dependencies": {
+    "@ronin/schema": "^0.1.6",
     "@tanstack/react-query": "^5.62.16",
     "@tanstack/react-query-devtools": "^5.62.16",
     "@tanstack/react-router": "^1.95.1",
@@ -20,9 +21,9 @@
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "redaxios": "^0.5.1",
+    "ronin": "^5.3.13",
     "tailwind-merge": "^2.6.0",
-    "vinxi": "0.5.1",
-    "ronin": "^5.3.13"
+    "vinxi": "0.5.1"
   },
   "devDependencies": {
     "@types/node": "^22.10.5",
