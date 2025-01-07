@@ -2,8 +2,6 @@ import { createServerFn } from "@tanstack/start"
 import * as models from "../../schema/index"
 import ronin from "ronin"
 
-const { create, get } = ronin({ models })
-
 export const $tryRonin = createServerFn({
   method: "POST",
 })
@@ -12,6 +10,7 @@ export const $tryRonin = createServerFn({
   })
   .handler(async () => {
     try {
+      const { get } = ronin({ models })
       const user = await get.users()
       console.log({ user })
     } catch (error) {
@@ -27,6 +26,7 @@ export const $createUser = createServerFn({
   })
   .handler(async () => {
     try {
+      const { create } = ronin({ models })
       const user = await create.user.with({
         name: "nikita",
       })
